@@ -1,7 +1,7 @@
 ## Interface: 120100
 ## Title: Implode
 ## Author: Blakjak
-## Version: 0.1
+## Version: 1.0.0
 ## IconTexture: Interface\AddOns\Implode\Icon.png
 ## SavedVariables: ImplodeDB
 
