@@ -434,6 +434,7 @@ end
 -- UPDATE --
 
 local function UpdateHighlight()
+
 	local overlay = EnsureOverlayExists()
 
 	if not ImplodeDB.enabled or not overlay then
@@ -443,7 +444,15 @@ local function UpdateHighlight()
 	end
 
 	local now = GetTime()
-	local ready = GetImpCount(now) >= IMP_THRESHOLD and now >= nextImplosionReadyAt
+	local estimated = GetImpCount(now)
+	local impCount = estimated
+	if not (InCombatLockdown() or UnitAffectingCombat("player")) then
+		local real = GetRealWildImpCount()
+		if real then
+			impCount = real
+		end
+	end
+	local ready = impCount >= IMP_THRESHOLD and now >= nextImplosionReadyAt
 
 	if not overlay then return end
 
