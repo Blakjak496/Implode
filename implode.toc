@@ -1,0 +1,10 @@
+## Interface: 120100
+## Title: Implode
+## Author: Blakjak
+## Version: 0.1
+## IconTexture: Interface\AddOns\Implode\Icon.png
+## SavedVariables: ImplodeDB
+
+Libs\LibStub\LibStub.lua
+Libs\LibButtonGlow-1.0\LibButtonGlow-1.0.lua
+implode.lua
