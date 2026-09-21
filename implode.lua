@@ -242,14 +242,23 @@ end
 
 -- OVERLAY --
 local overlayFrame
+local cachedImplosionFrame
 
 local function GetImplosionFrame()
+	if cachedImplosionFrame then
+		return cachedImplosionFrame
+	end
+
 	if not EssentialCooldownViewer or not EssentialCooldownViewer.GetItemFrames then
 		return nil
 	end
+
 	for _, itemFrame in ipairs(EssentialCooldownViewer:GetItemFrames()) do
-		local ok, spellID = pcall(itemFrame.GetSpellID, itemFrame)
-		if ok and spellID == IMPLOSION_SPELL_ID then
+		local ok, matches = pcall(function()
+			return itemFrame:GetSpellID() == IMPLOSION_SPELL_ID
+		end)
+		if ok and matches then
+			cachedImplosionFrame = itemFrame
 			return itemFrame
 		end
 	end
@@ -506,6 +515,7 @@ eventFrame:SetScript("OnEvent", function(self, event, unit, castGUID, spellID)
 		if EssentialCooldownViewer and not EssentialCooldownViewer.ImplodeHighlightHooked then
 			EssentialCooldownViewer.ImplodeHighlightHooked = true
 			hooksecurefunc(EssentialCooldownViewer, "Layout", function()
+				cachedImplosionFrame = nil
 				overlayFrame = nil
 				UpdateHighlight()
 			end)
@@ -520,6 +530,7 @@ eventFrame:SetScript("OnEvent", function(self, event, unit, castGUID, spellID)
 
 	if event == "PLAYER_SPECIALIZATION_CHANGED" and unit == "player" then
 		wipe(activeGroups)
+		cachedImplosionFrame = nil
 		EstablishInnerDemonsProcess()
 	end
 
