@@ -3,3 +3,7 @@ externals:
     url: https://repos.wowace.com/wow/libstub/trunk
   Libs/LibButtonGlow-1.0:
     url: https://repos.wowace.com/wow/libbuttonglow-1-0
+
+manual-changelog:
+  filename: CHANGELOG.md
+  markup-type: markdown
