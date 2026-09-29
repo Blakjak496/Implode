@@ -1,1 +1,2 @@
 v.1.0.0 - Initial Release
+v1.0.2 - Packager setup
