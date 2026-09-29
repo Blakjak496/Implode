@@ -4,6 +4,7 @@
 ## Version: 1.0.1
 ## IconTexture: Interface\AddOns\Implode\Icon.png
 ## SavedVariables: ImplodeDB
+## X-Curse-Project-ID: 1699872
 
 Libs\LibStub\LibStub.lua
 Libs\LibButtonGlow-1.0\LibButtonGlow-1.0.lua
