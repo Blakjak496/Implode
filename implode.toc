@@ -1,4 +1,4 @@
-## Interface: 120100
+## Interface: 120105
 ## Title: Implode
 ## Author: Blakjak
 ## Version: 1.0.1
@@ -7,4 +7,4 @@
 
 Libs\LibStub\LibStub.lua
 Libs\LibButtonGlow-1.0\LibButtonGlow-1.0.lua
-implode.lua
+Implode.lua
